@@ -1,12 +1,11 @@
 # Portfolio Part 1: Component Brainstorming
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) then delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) then delete this comment -->
-- **Due Date**: <!-- TODO: fill with due date and time (e.g., 10/17 @ 3:10 PM EST) then delete this comment -->
+- **Name**: Zoey Endicott
+- **Dot Number**: endicott.72
+- **Due Date**: 2/6/2026 @ 4:10pm
 
 ## Assignment Overview
 
-<!-- TODO: read the assignment overview then delete this comment -->
 
 The overall goal of the portfolio project is to have you design and implement
 your own OSU component. There are no limits to what you choose to design and
@@ -29,7 +28,6 @@ implement.
 
 ## Assignment Checklist
 
-<!-- TODO: browse the checklist then delete this comment -->
 
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
@@ -52,22 +50,18 @@ to the tree diagram (you may remove this one as well):
 
 ## Assignment Learning Objectives
 
-<!-- TODO: read the assignment learning objectives then delete this comment -->
 
 Without learning objectives, there really is no clear reason why a particular
 assessment or activity exists. Therefore, to be completely transparent, here is
 what we're hoping you will learn through this particular aspect of the portfolio
 project. Specifically, students should be able to:
 
-1. Integrate their areas of interest in their personal lives and/or careers with
-   their knowledge of software design
+   their knowledge of software dvesign
 2. Determine the achievablility of a software design given time constraints
 3. Design high-level software components following the software sequence
    discipline
 
 ## Assignment Rubric: 10 Points
-
-<!-- TODO: read the assignment rubric then delete this comment -->
 
 Again, to be completely transparent, most of the portfolio project, except the
 final submission, is designed as a formative assessment. Formative assessments
@@ -106,15 +100,10 @@ Below is further rationale/explanation for the rubric items above:
 > brainstorming. Plus it helps us get to know you better! Feel free to share
 > images in this section.
 
-<!-- TODO: briefly talk about your interests then delete this comment.
-Also, protip: you can preview what your response looks like by hitting
-the magnifying glass icon in the upper-right corner or pressing CTRL+K and
-then V. This kind of button combination is called a chord, for whatever
-reason -->
+Before majoring in CSE, my academic background was in art, with a focus on illustration. I continue to enjoy drawing and creating artwork to this day. I am also interested in games, especially text-driven visual novels RPGs.
 
 ## Assignment
 
-<!-- TODO: read the assignment section then delete this comment -->
 
 As previously stated, you are tasked with brainstorming 3 possible components.
 To aid you in this process, we have provided [some example components][example-components]
@@ -122,7 +111,6 @@ that may help you in your brainstorming. All of these components were made at
 some point by one of your peers, so you should feel confident that you can
 accomplish any of them.
 
-<!-- TODO: browse the list of possible projects then delete this comment -->
 
 There is no requirement that you use any of the components listed above.
 If you want to model something else, go for it! Very common early object
@@ -143,7 +131,7 @@ about different ways you might allow a client to manipulate your component.
 
 ### Example Component
 
-<!-- TODO: review this example component then delete this comment -->
+
 
 To help you brainstorm a few components, we've provided an example below of a
 component you already know well: NaturalNumber. We highly recommend that you
@@ -211,68 +199,84 @@ will likely refine your design to make your implementation easier to use.
 
 > Please use this section to share your designs.
 
-- Component Design #1: <!-- TODO: give component a name then delete this comment -->
+- Component Design #1: Palette
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - The purpose of this component is to model a collection fo colors for digital art and design applications. Intent with this design was to keep a simple kernel that provides the minimum functionality neede to manage a collection of colors. The kernel allows basic addition and removal of colors, the secondary interface provides more complex color operation like blending/filering.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - void add(String hexColor): adds a color in hex format to this palette
+    - String removeAny(): removes and returns an arbitrary color from this palette
+    - int size(): reports the number of colors in this palette
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - void remove(String hexColor): removes a specific color from this palette
+    - boolean contains(String hexColor): reports whether this palette contains the given color
+    - String blend(String color1, String color2): returns a new color created by averaging the RGB values of two colors
+    - void clear(): removes all colors from this palettevoid clear(): removes all colors from this palette
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I am not sure, but I think its YES.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - No, all methods work with tsring representations of colors in hex format.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Possibily, it might need to define constants to validate hex color format. And for RGC calculations in secondary method also need define something like MAX_RGB_VALUE=255 to make sure it works.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes. For example, to implement remove(String hexColor), it can be implemented by using a temporary palette, and repeatedly call removeAny() on this palette.
 
-- Component Design #2: <!-- TODO: give component a name then delete this comment -->
+- Component Design #2: Playlist
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - This component is to model a music playlist that stores songs in sequence. I want to keep a simple kernal that provides the minimum functionality needed to manage an ordered collection of songs. The kernel allows adding sonsg to the end and removing from the front(like queue),and the secondary interface provides more complext playlist operations like shuffling, searching and filtering.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - void enqueue(String title, String artist, int durationSeconds): adds a song to the end of this playlist
+    - void dequeue(): removes the first song from this playlist
+    - String front(): returns a string representation of the first song without removing it
+    - int length(): reports the number of songs in this playlist
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - void addAt(int position, String title, String artist, int durationSeconds): inserts a song at the specified position
+    - void remove(String title): removes the first song with the matching title
+    - void shuffle(): randomly reorders all songs in this playlist
+    - Playlist filterByArtist(String artist): returns a new playlist containing only songs by the specified artist
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes， since using same idea like enqueue and enqueue
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, it might need a Playlist.Song internal class to collect song data, and its very similar to Map.Pair
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I think for the current plan no, but if I want to added more method it depends.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes，I think th ekernal method enqueue, dequeue, front and length can be used to implement all the secondary methods. For example, to implement shuffle(), I can use dequeue all songs one by one into a temporary collection, then randomize it then enqueue it back.
 
-- Component Design #3: <!-- TODO: give component a name then delete this comment -->
+- Component Design #3:PomodoroSession
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - This component is to model a Pomodora Timer session for productivity and docus management. I want to keep a simple kernel that can track a signgle time internal. The secondary interface provides session management features like auto-transitions between work and breaks,  and integration with playlists.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - void start(int durationMinutes): starts a new interval of specified duration in this session
+    - int timeRemaining(): reports the remaining time in seconds for the current interval
+    - void finish(): marks the current interval as complete
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - void pause(): pauses the current interval
+    - void resume(): resumes a paused interval
+    - void skip(): completes the current interval early and marks it as skipped
+    - void setWorkPlaylist(Playlist playlist): assigns a playlist to play during work intervals
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I'm not sure at this time.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, it might need a internal class to collect interbal data(start time, duration,status,associated playlist)to organize th etiming information.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, it need define an value for break(short/long) and the work time(in minutes) following the traditional Pomodoro Technique.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I think its a yes, but I can't come up with an idea with an example between them.
 
 ## Post-Assignment
 
@@ -281,7 +285,6 @@ completed the assignment.
 
 ### Changelog
 
-<!-- TODO: create CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -320,7 +323,6 @@ of development.
 
 ### Submission
 
-<!-- TODO: read the submission instructions then delete this comment -->
 
 If you have completed the assignment using this template, we recommend that
 you convert it to a PDF before submission. If you're not sure how, check out
@@ -330,11 +332,10 @@ all your work is there before submitting. For future assignments, you will
 just be submitting a link to a pull request. This will be the only time
 you have to submit any PDFs.
 
-<!-- TODO: upload a PDF of this document and the CHANGELOG to Carmen then delete this comment -->
+
 
 ### Peer Review
 
-<!-- TODO: review the peer review guidelines then delete this comment -->
 
 Following the completion of this assignment, you will be assigned three
 students' component brainstorming assignments for review. Your job during the
@@ -361,7 +362,7 @@ If you'd like to give feedback for this assignment (or any assignment, really),
 make use of [this survey][survey]. Your feedback helps make assignments
 better for future students.
 
-<!-- TODO: follow the link to share your feedback then delete this comment -->
+
 
 [example-components]: https://therenegadecoder.com/code/the-never-ending-list-of-small-programming-project-ideas/
 [markdown-to-pdf-guide]: https://therenegadecoder.com/blog/how-to-convert-markdown-to-a-pdf-3-quick-solutions/
