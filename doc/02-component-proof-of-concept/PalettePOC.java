@@ -1,6 +1,5 @@
 import java.util.ArrayList; //used array list to store the colors in the palette
 import java.util.List;
-import java.util.Random; //used random to generate random colors for the palette
 
 /*
 The external resources used in this project listed below:
@@ -33,7 +32,7 @@ public class PalettePOC {
      * @param hexColor
      *            hex color string (expected like "#RRGGBB")
      */
-    public void addColor(String hexColor) { 
+    public void add(String hexColor) { 
         if(hexColor.startsWith("#")){
             this.colors.add(hexColor.toUpperCase()); //add the color to the palette, convert to uppercase
         }
@@ -70,7 +69,7 @@ public class PalettePOC {
      *            second color (expected like "#RRGGBB")
      * @return blended color in hex format like "#RRGGBB" (uppercase)
      */
-    public String blendColors(String color1, String color2) {
+    public String blend(String color1, String color2) {
         //external resource used for hex to RGB conversion: https://stackoverflow.com/questions/3607858/convert-a-rgb-color-value-to-a-hexadecimal-string
         int r1 = Integer.parseInt(color1.substring(1, 3), 16);
         int g1 = Integer.parseInt(color1.substring(3, 5), 16);
@@ -87,6 +86,8 @@ public class PalettePOC {
 
         //back to hex
         return String.format("#%02X%02X%02X", ravg, gavg, bavg);
+    }
+
     /**
      * Checks whether the palette contains the given color.
      *
@@ -94,7 +95,7 @@ public class PalettePOC {
      *            hex color string (expected like "#RRGGBB")
      * @return true if present; false otherwise
      */
-    public boolean containsColor(String hexColor) {
+    public boolean contains(String hexColor) {
         return this.colors.contains(hexColor.toUpperCase());
 }
     /*
@@ -123,7 +124,6 @@ public class PalettePOC {
         System.out.println("Current palette size: " + myPalette.size());
 
         //blend the two colors and display the result
-        System.out.println("\nBlending colors...");
         String purple = myPalette.blend(red, blue);
         System.out.println("Blend result (purple): " + purple);
 
@@ -137,5 +137,9 @@ public class PalettePOC {
         String removed = myPalette.removeAny();
         System.out.println("\nRemoved color: " + removed);
         System.out.println("Remaining number of colors: " + myPalette.size());
+
+
+        System.out.println("Test is done.");
 }
     }
+
