@@ -1,6 +1,6 @@
 import components.standard.Standard;
 
-public interface PaletteKernel {
+public interface PaletteKernel extends Standard<Palette>{
  /**
      * Adds {@code hexColor} to this palette.
      *
@@ -20,7 +20,7 @@ public interface PaletteKernel {
      */
     void add(String hexColor);
 
-    
+
     /**
      * Removes and returns an arbitrary color from this palette.
      *
