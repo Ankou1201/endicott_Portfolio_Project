@@ -13,3 +13,8 @@ the following form: YYYY.0M.0D.
 - Designed a Palette component
 - Designed a Playlist component
 - Designed a PomodoroSession component
+
+## 2025.03.10
+
+### Added
+- Designed kernel and enhanced interfaces for Palette component
