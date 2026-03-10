@@ -19,4 +19,20 @@ public interface PaletteKernel {
      *  </pre>
      */
     void add(String hexColor);
+    /**
+     * Removes and returns an arbitrary color from this palette.
+     *
+     * @return the removed hex color string
+     * @updates this
+     * @requires
+     *  <pre>
+     *  |this| > 0
+     *  </pre>
+     * @ensures
+     *  <pre>
+     *  removeAny is in #this and
+     *  this = #this \ {removeAny}
+     *  </pre>
+     */
+    String removeAny();
 }
