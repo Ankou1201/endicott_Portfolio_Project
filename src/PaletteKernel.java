@@ -1,0 +1,81 @@
+import components.standard.Standard;
+
+/**
+ * Mutable data type representing a palette of hex colors.
+ *
+ * <p>A {@code Palette} stores an unordered collection of normalized hex color
+ * strings in the format {@code #RRGGBB} (uppercase). Duplicate colors are
+ * allowed.
+ *
+ * @author Zoey
+ * @mathmodel <p>type PaletteKernel is modeled by a multiset of strings
+ *            where each string matches the pattern #[0-9A-F]{6}
+ * @initially
+ *  <pre>
+ *  ensures
+ *   this = {}
+ *  </pre>
+ */
+public interface PaletteKernel extends Standard<Palette> {
+
+    /**
+     * Adds {@code hexColor} to this palette.
+     *
+     * @param hexColor
+     *            the hex color string to add
+     * @aliases reference {@code hexColor}
+     * @updates this
+     * @requires
+     *  <pre>
+     *  hexColor starts with '#' and |hexColor| = 7 and
+     *  hexColor[1..6] are all valid hex characters [0-9A-Fa-f]
+     *  </pre>
+     * @ensures
+     *  <pre>
+     *  this = #this union {hexColor.toUpperCase()}
+     *  </pre>
+     */
+    void add(String hexColor);
+
+    /**
+     * Removes and returns an arbitrary color from this palette.
+     *
+     * @return the removed hex color string
+     * @updates this
+     * @requires
+     *  <pre>
+     *  |this| > 0
+     *  </pre>
+     * @ensures
+     *  <pre>
+     *  removeAny is in #this and
+     *  this = #this \ {removeAny}
+     *  </pre>
+     */
+    String removeAny();
+
+    /**
+     * Reports whether {@code hexColor} is in this palette.
+     *
+     * @param hexColor
+     *            the hex color string to look for
+     * @return true iff {@code hexColor} is in this palette
+     * @ensures
+     *  <pre>
+     *  contains = (hexColor.toUpperCase() is in this)
+     *  </pre>
+     */
+    boolean contains(String hexColor);
+
+    /**
+     * Reports the number of colors in this palette.
+     *
+     * @return the number of colors
+     * @ensures
+     *  <pre>
+     *  size = |this|
+     *  </pre>
+     */
+    int size();
+
+}
