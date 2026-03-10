@@ -19,6 +19,8 @@ public interface PaletteKernel {
      *  </pre>
      */
     void add(String hexColor);
+
+    
     /**
      * Removes and returns an arbitrary color from this palette.
      *
@@ -35,4 +37,29 @@ public interface PaletteKernel {
      *  </pre>
      */
     String removeAny();
+
+
+    /**
+     * Reports whether {@code hexColor} is in this palette.
+     *
+     * @param hexColor
+     *            the hex color string to look for
+     * @return true iff {@code hexColor} is in this palette
+     * @ensure
+     *  <pre>
+     *  contains = (hexColor.toUpperCase() is in this)
+     *  </pre>
+     */
+    boolean contains(String hexColor);
+
+    /**
+     * Reports the number of colors in this palette.
+     *
+     * @return the number of colors
+     * @ensures
+     *  <pre>
+     *  size = |this|
+     *  </pre>
+     */
+    int size();
 }
