@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
+
 ## 2026.02.06
 
 ### Added
@@ -23,3 +24,11 @@ the following form: YYYY.0M.0D.
 
 ### Added
 - Designed kernel and enhanced interfaces for Palette component
+
+## 2025.04.01
+
+### Added
+
+- Designed abstract class for Palette component
+- Implemented secondary methods `blend()`, `isEmpty()`, and `remove()` using kernel methods only
+- Implemented common Object methods `toString()`, `equals()`, and `hashCode()` using kernel methods only
