@@ -32,3 +32,9 @@ the following form: YYYY.0M.0D.
 - Designed abstract class for Palette component
 - Implemented secondary methods `blend()`, `isEmpty()`, and `remove()` using kernel methods only
 - Implemented common Object methods `toString()`, `equals()`, and `hashCode()` using kernel methods only
+
+## 2026.04.14
+
+### Added
+
+- Designed kernel implementation for Palette component
