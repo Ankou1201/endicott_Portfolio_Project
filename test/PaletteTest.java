@@ -104,7 +104,7 @@ public class PaletteTest {
     }
         
     /**
-     * Tests remove on palette with two colo
+     * Tests remove on palette with two color, only one target removed
      */
     @Test
     public void testRemoveOneOfTwo() {
@@ -115,4 +115,64 @@ public class PaletteTest {
         p.remove("#0000FF"); //target color is removed
         assertEquals(expected, p);
     }
+    /**
+     * Tests remove on palette with many colors 
+     */
+    @Test
+    public void testRemoveOneOfMany() {
+        Palette p = new Palette1L();
+        p.add("#FF0000");
+        p.add("#00FF00");
+        p.add("#0000FF");
+        Palette expected = new Palette1L();
+        expected.add("#FF0000");
+        expected.add("#0000FF");
+        p.remove("#00FF00");
+        assertEquals(expected, p);
+    }
+
+    //the following test cases are for toString method -------------------------------------------------------
+    /**
+     * Tests toString on empty palette
+     */    
+    @Test
+    public void testToStringZero() {
+        Palette p = new Palette1L();
+        Palette pCopy = new Palette1L();
+        assertEquals("{}", p.toString());
+        assertEquals(pCopy, p);
+    }
+    /**
+     * Tests toString on palette with one color
+     */
+    @Test
+    public void testToStringOne() {
+        Palette p = new Palette1L("#FF0000");
+        Palette pCopy = new Palette1L("#FF0000");
+        String result = p.toString();
+        assertTrue(result.contains("#FF0000"));
+        assertTrue(result.startsWith("{"));
+        assertTrue(result.endsWith("}"));
+        assertEquals(pCopy, p);
+    }
+    /**
+     * Tests toString on palette with many colo
+     */
+    @Test
+    public void testToStringMany() {
+        Palette p = new Palette1L();
+        p.add("#FF0000");
+        p.add("#00FF00");
+        p.add("#0000FF");
+        Palette pCopy = new Palette1L();
+        pCopy.add("#FF0000");
+        pCopy.add("#00FF00");
+        pCopy.add("#0000FF");
+        String result = p.toString();
+        assertTrue(result.contains("#FF0000"));
+        assertTrue(result.contains("#00FF00"));
+        assertTrue(result.contains("#0000FF"));
+        assertEquals(pCopy, p);
+    }
+
 
