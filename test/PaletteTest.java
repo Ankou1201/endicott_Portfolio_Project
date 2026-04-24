@@ -58,7 +58,7 @@ public class PaletteTest {
      * Tests isEmpty on empty palette --> true
      */
     @Test
-    public void testIsEmptyZero() {
+    public void testIsEmpty0() {
         Palette p = new Palette1L();
         assertTrue(p.isEmpty());
         assertEquals(new Palette1L(), p);
@@ -68,7 +68,7 @@ public class PaletteTest {
      * Tests isEmpty with one color (1) --> false
      */
     @Test
-    public void testIsEmptyOne() {
+    public void testIsEmpty1() {
         Palette p = new Palette1L("#FF0000");
         Palette pCopy = new Palette1L("#FF0000");
         assertFalse(p.isEmpty());
@@ -136,7 +136,7 @@ public class PaletteTest {
      * Tests toString on empty palette
      */    
     @Test
-    public void testToStringZero() {
+    public void testToString0() {
         Palette p = new Palette1L();
         Palette pCopy = new Palette1L();
         assertEquals("{}", p.toString());
@@ -146,7 +146,7 @@ public class PaletteTest {
      * Tests toString on palette with one color
      */
     @Test
-    public void testToStringOne() {
+    public void testToString1() {
         Palette p = new Palette1L("#FF0000");
         Palette pCopy = new Palette1L("#FF0000");
         String result = p.toString();
@@ -156,7 +156,7 @@ public class PaletteTest {
         assertEquals(pCopy, p);
     }
     /**
-     * Tests toString on palette with many colo
+     * Tests toString on palette with many colors
      */
     @Test
     public void testToStringMany() {
@@ -174,5 +174,72 @@ public class PaletteTest {
         assertTrue(result.contains("#0000FF"));
         assertEquals(pCopy, p);
     }
+    //the following test cases are for the equals method -------------------------------------------------------
+    /**
+     * Tests equals on two empty palettes
+     */
+    @Test
+    public void testEquals0() {
+        Palette p1 = new Palette1L();
+        Palette p2 = new Palette1L();
+        assertEquals(p1, p2);
+    }
 
+    /**
+     * Tests equals on two palettes each with one matching color
+     */
+    @Test
+    public void testEquals1() {
+        Palette p1 = new Palette1L("#FF0000");
+        Palette p2 = new Palette1L("#FF0000");
+        assertEquals(p1, p2);
+    }
 
+    /**
+     * Tests equals on two palettes with many matching colors
+     */
+    @Test
+    public void testEqualsMany() {
+        Palette p1 = new Palette1L();
+        p1.add("#FF0000");
+        p1.add("#00FF00");
+        p1.add("#0000FF");
+        Palette p2 = new Palette1L();
+        p2.add("#0000FF");
+        p2.add("#FF0000");
+        p2.add("#00FF00");
+        assertEquals(p1, p2);
+    }
+
+    /**
+     * Tests equals returns false when one palette has one color
+     */
+    @Test
+    public void testEqualsNotEqualOneVsZero() {
+        Palette p1 = new Palette1L("#FF0000");
+        Palette p2 = new Palette1L();
+        assertFalse(p1.equals(p2));
+    }
+
+    /**
+     * Tests equals does not mutate either palette (many colors).
+     */
+    @Test
+    public void testEqualsDoesNotMutateMany() {
+        Palette p1 = new Palette1L();
+        p1.add("#FF0000");
+        p1.add("#00FF00");
+        Palette p2 = new Palette1L();
+        p2.add("#FF0000");
+        p2.add("#00FF00");
+        Palette p1Copy = new Palette1L();
+        p1Copy.add("#FF0000");
+        p1Copy.add("#00FF00");
+        Palette p2Copy = new Palette1L();
+        p2Copy.add("#FF0000");
+        p2Copy.add("#00FF00");
+        p1.equals(p2);
+        assertEquals(p1Copy, p1);
+        assertEquals(p2Copy, p2);
+    }
+}
