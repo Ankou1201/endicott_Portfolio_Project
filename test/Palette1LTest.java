@@ -229,3 +229,93 @@ public class Palette1LTest {
         p.clear();
         assertEquals(new Palette1L(), p);
     }
+
+    //the following tests are for the newInstance method ------------------------------------------------------
+
+    /**
+     * Tests newInstance called on empty palette
+     */
+    @Test
+    public void testNewInstanceFromEmpty() {
+        Palette p = new Palette1L();
+        Palette fresh = p.newInstance();
+        assertEquals(new Palette1L(), fresh);
+        assertEquals(new Palette1L(), p);
+    }
+
+    /**
+     * Tests newInstance called on palette with one color
+     * returns empty, original unchanged.
+     */
+    @Test
+    public void testNewInstanceFrom1() {
+        Palette p = new Palette1L("#FF0000");
+        Palette pCopy = new Palette1L("#FF0000");
+        Palette fresh = p.newInstance();
+        assertEquals(new Palette1L(), fresh);
+        assertEquals(pCopy, p);
+    }
+
+    /**
+     * Tests newInstance called on palette with many colors
+     * returns empty, original unchanged.
+     */
+    @Test
+    public void testNewInstanceFromMany() {
+        Palette p = new Palette1L();
+        p.add("#FF0000");
+        p.add("#00FF00");
+        p.add("#0000FF");
+        Palette pCopy = new Palette1L();
+        pCopy.add("#FF0000");
+        pCopy.add("#00FF00");
+        pCopy.add("#0000FF");
+        Palette fresh = p.newInstance();
+        assertEquals(new Palette1L(), fresh);
+        assertEquals(pCopy, p);
+    }
+
+    ///the following tests are for the transferFrom method ------------------------------------------------------
+    /**
+     * Tests transferFrom with empty source.
+     */
+    @Test
+    public void testTransferFromZero() {
+        Palette src = new Palette1L();
+        Palette dest = new Palette1L("#FF0000");
+        dest.transferFrom(src);
+        assertEquals(new Palette1L(), dest);
+        assertEquals(new Palette1L(), src);
+    }
+
+    /**
+     * Tests transferFrom with one color in source.
+     */
+    @Test
+    public void testTransferFrom1() {
+        Palette src = new Palette1L("#FF0000");
+        Palette dest = new Palette1L();
+        dest.transferFrom(src);
+        assertEquals(new Palette1L("#FF0000"), dest);
+        assertEquals(new Palette1L(), src);
+    }
+
+    /**
+     * Tests transferFrom with many colors in source.
+     */
+    @Test
+    public void testTransferFromMany() {
+        Palette src = new Palette1L();
+        src.add("#FF0000");
+        src.add("#00FF00");
+        src.add("#0000FF");
+        Palette expected = new Palette1L();
+        expected.add("#FF0000");
+        expected.add("#00FF00");
+        expected.add("#0000FF");
+        Palette dest = new Palette1L();
+        dest.transferFrom(src);
+        assertEquals(expected, dest);
+        assertEquals(new Palette1L(), src);
+    }
+}
