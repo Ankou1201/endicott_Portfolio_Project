@@ -50,8 +50,6 @@ course, but just knowing about them could set you up for long term success.
 
 ## Assignment Checklist
 
-<!-- TODO: browse the checklist then delete this comment -->
-
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
 opening the TODOs window from the sidebar. The icon looks like a tree and will
@@ -141,7 +139,7 @@ to see them. If you don't like this workflow, you may try following the
 rebase strategies described [here](https://stackoverflow.com/questions/35790561/working-while-waiting-for-pending-pr)
 and [here](https://stackoverflow.com/questions/18021888/continue-working-on-a-git-branch-after-making-a-pull-request).
 
-<!-- TODO: make a new branch from main then delete this comment -->
+
 
 ## Assignment Tasks
 
@@ -306,19 +304,19 @@ Take some time to fill them out honestly.
 > in class fails to map to the real world. Now that you've had a chance to
 > complete the portfolio project, how much better (or worse) do you think you
 > understand software development and why?
+Prior to this project, every implementation assignment came with a prewritten interface and a reference to test against; the design decisions had already been made, and my role was essentially to complete a todo list. Designing the Palette component from scratch shifted that entirely. Choosing which methods belonged at the kernel level, which could be deferred to secondary layers, and how to write contracts precise enough to guide implementation without over-constraining it were decisions I had never been responsible for before. The experience gave me a more grounded understanding of why the interface-abstract-implementation hierarchy exists beyond just being a course requirement.
 
-<!-- TODO: discuss -->
 
 > Also, did the portfolio project surface any gaps in your own knowledge of
 > software development. If so, what are those gaps and how did you address them?
 
-<!-- TODO: discuss -->
+Almost every stage of this project exposed some gap. After each submission I found myself at open lab asking a TA for clarification, particularly around the design decisions described above; without prior experience making those calls independently, I frequently felt uncertain about whether my choices were well-founded. The placement of most methods ultimately referenced the structure of assignments and course projects.
 
 > Finally, as a part of completing the portfolio project, to what extent has
 > your perspective of software development changed, if at all? In other words,
 > is software development something you still enjoy? If not, why not?
 
-<!-- TODO: discuss -->
+Software development remains genuinely interesting to me; the sense of having actually built something functional carries its own satisfaction that is difficult to replicate in other kinds of coursework. That said, the project also surfaced how much sustained decision-making the discipline requires, which is a more complete picture than I had before.
 
 > One of the challenges of completing the portfolio project is picking up a lot
 > of skills on your own. Some of these skills are, of course, software skills.
@@ -326,29 +324,27 @@ Take some time to fill them out honestly.
 > this process. Therefore, the first question is what skills did you pick up
 > through this process?
 
-<!-- TODO: discuss -->
+The more transferable gains were habits of mind rather than specific syntax. Writing specifications before writing code, thinking carefully through parameter modes and aliasing concerns, maintaining a consistent branching workflow across a semester-long project; these practices took repeated application before they felt natural.
 
 > The follow-up question is: could you rephrase these skills you picked up
 > as bullet points that you could put on a resume? Try it below.
 
-<!-- TODO: discuss -->
-
+ - Designed and implemented a custom Java software component across three abstraction layers; interface, abstract class, and kernel implementation
+ - Authored formal method specifications using design-by-contract conventions; preconditions, postconditions, and parameter modes
 > Next, how has working on this project affected your career trajectory?
 > In other words, do you now hate the topic you picked? Or, are you even more
 > interested in it? Both outcomes are valuable to your personal development.
 
-<!-- TODO: discuss -->
+The project gave me a clearer picture of what software development work actually involves at a design level, which was valuable. At the same time, after attending career day I found myself drawn toward a direction beyond pure software development.
 
 > Finally, consider the skills you've picked up and your current career
 > trajectory. What are some things you could do to continue on your
 > career trajectory? Also, who are some mentors you could contact to help
 > you stay on your path?
 
-<!-- TODO: discuss -->
+Regardless of the specific direction, continuous learning and genuine openness to unfamiliar ideas seem like the constants. More concretely, pursuing projects or research that sit at the intersection of software and whatever adjacent field I move toward would let the technical foundation built here remain relevant
 
 ### Changelog
-
-<!-- TODO: update CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
