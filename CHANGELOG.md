@@ -38,3 +38,15 @@ the following form: YYYY.0M.0D.
 ### Added
 
 - Designed kernel implementation for Palette component
+
+## 2026.04.22
+
+### Added
+
+- Designed test suite for Palette component (PaletteTest.java, Palette1LTest.java)
+
+
+## 2026.04.22
+
+### Added
+- Designed two different use cases for Palette component (PaletteDemo.java, ThemeGenerator.java)
